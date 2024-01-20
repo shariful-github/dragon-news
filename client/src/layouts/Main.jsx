@@ -13,8 +13,8 @@ const Main = () => {
                     <Col lg={3} className='ps-0'>
                         <LeftNav></LeftNav>
                     </Col>
-                    <Col lg={6} className='border border-danger-subtle'>
-                        <p>Main content comming soon...</p>
+                    <Col lg={6} className='border border-1'>
+                        <p>Contents comming soon...</p>
                     </Col>
                     <Col lg={3}>
                         <RightNav></RightNav>
