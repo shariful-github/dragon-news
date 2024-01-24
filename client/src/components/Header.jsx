@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../assets/logo.png';
 import moment from 'moment';
 import Button from 'react-bootstrap/Button';
 import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
 import userIcon from '../assets/user.png'
+import { AuthContext } from '../providers/AuthProvider';
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     return (
         <div>
             <div className='text-center'>
@@ -28,8 +30,13 @@ const Header = () => {
                     <Link to={'/'} className='text-decoration-none me-3 text-secondary'>Career</Link>
                 </div>
                 <div className='text-end col pe-0'>
-                    <img src={userIcon} style={{width: '37px'}} alt="" />
-                    <Button className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Login</Button>
+                    {user ?
+                        <>
+                            <img src={userIcon} style={{ width: '37px' }} alt="" />
+                            <Button className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Logout</Button>
+                        </> :
+                        <Button className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Login</Button>
+                    }
                 </div>
             </nav>
         </div>

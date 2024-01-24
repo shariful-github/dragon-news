@@ -1,21 +1,19 @@
 import React from 'react';
-import Header from '../components/Header';
-import LeftNav from "../components/LeftNav";
-import RightNav from "../components/RightNav";
 import { Col, Container, Row } from 'react-bootstrap';
+import Header from '../components/Header';
 import { Outlet } from 'react-router-dom';
+import RightNav from '../components/RightNav';
+import EditorsInsight from '../components/EditorsInsight';
 
-const Main = () => {
+const NewsLayout = () => {
     return (
         <div>
             <Header></Header>
             <Container className='w-75 mt-5 mb-5'>
                 <Row>
-                    <Col lg={3} className='ps-0'>
-                        <LeftNav></LeftNav>
-                    </Col>
-                    <Col lg={6}>
+                    <Col lg={9}>
                         <Outlet></Outlet>
+                        <EditorsInsight></EditorsInsight>
                     </Col>
                     <Col lg={3}>
                         <RightNav></RightNav>
@@ -26,4 +24,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default NewsLayout;

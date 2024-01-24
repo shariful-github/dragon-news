@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
+import '../../public/style.css'
 
 const LeftNav = () => {
     const [categories, setCategories] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('http://localhost:5000/categories')
-        .then(res => res.json())
-        .then(data => setCategories(data))
-        .catch(error => console.error(error))
+            .then(res => res.json())
+            .then(data => setCategories(data))
+            .catch(error => console.error(error))
     }, [])
     return (
         <div>
             <h6 className='fw-bold'>All Category</h6>
-            <div className='mt-4 ps-4'>
-                {
-                    categories.map(category =>
-                        <p key={category.id}>
-                            <Link to={`./category/${category.name}`} className='text-decoration-none text-secondary'>{category.name}</Link>
-                        </p>
-                    )
-                }
-            </div>
+            <nav className='mt-4 ps-4'>
+                {categories.map(category => 
+                    <NavLink
+                        key={category.key}
+                        to={`/category/${category.id}`}
+                        className='text-decoration-none text-secondary d-block mb-4'
+                    >
+                        {category.name}
+                    </NavLink>
+                )}
+            </nav>
         </div>
     );
 };
