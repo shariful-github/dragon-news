@@ -8,7 +8,17 @@ import userIcon from '../assets/user.png'
 import { AuthContext } from '../providers/AuthProvider';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log('Sign-out successful');
+            }).catch((error) => {
+                console.log(error.message);
+            });
+    }
+
     return (
         <div>
             <div className='text-center'>
@@ -33,7 +43,7 @@ const Header = () => {
                     {user ?
                         <>
                             <img src={userIcon} style={{ width: '37px' }} alt="" />
-                            <Button className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Logout</Button>
+                            <Button onClick={handleLogOut} className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Logout</Button>
                         </> :
                         <Link to={'/login'}>
                             <Button className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Login</Button>
