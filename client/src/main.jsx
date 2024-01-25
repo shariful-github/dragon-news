@@ -11,6 +11,9 @@ import Category from './components/Category.jsx';
 import NewsLayout from './layouts/NewsLayout.jsx';
 import News from './components/News.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
+import Login from './layouts/Login.jsx';
+import Register from './layouts/Register.jsx';
+import Test from './components/Test.jsx'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +31,14 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
       }
     ]
+  },
+  {
+    path: '/login',
+    element: <Login></Login>
+  },
+  {
+    path: '/register',
+    element: <Register></Register>
   },
   {
     path: '/news',

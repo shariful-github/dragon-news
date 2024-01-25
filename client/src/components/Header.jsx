@@ -35,7 +35,9 @@ const Header = () => {
                             <img src={userIcon} style={{ width: '37px' }} alt="" />
                             <Button className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Logout</Button>
                         </> :
-                        <Button className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Login</Button>
+                        <Link to={'/login'}>
+                            <Button className="btn btn-secondary ms-2 me-0 rounded-0 px-5">Login</Button>
+                        </Link>
                     }
                 </div>
             </nav>
