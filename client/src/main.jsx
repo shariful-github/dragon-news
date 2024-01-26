@@ -14,6 +14,8 @@ import AuthProvider from './providers/AuthProvider.jsx';
 import Login from './layouts/Login.jsx';
 import Register from './layouts/Register.jsx';
 import Test from './components/Test.jsx'
+import PrivateRoute from './routes/PrivateRoute.jsx';
+import TermsAndConditions from './layouts/TermsAndConditions.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,10 +48,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: ':id',
-        element: <News></News>,
+        element: <PrivateRoute><News></News></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
       }
     ]
+  },
+  {
+    path: '/terms', 
+    element: <TermsAndConditions></TermsAndConditions>,
   }
 ]);
 

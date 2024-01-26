@@ -17,7 +17,7 @@ const LeftNav = () => {
             <nav className='mt-4 ps-4'>
                 {categories.map(category => 
                     <NavLink
-                        key={category.key}
+                        key={category.id}
                         to={`/category/${category.id}`}
                         className='text-decoration-none text-secondary d-block mb-4'
                     >

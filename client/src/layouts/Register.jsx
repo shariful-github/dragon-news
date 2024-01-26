@@ -7,6 +7,7 @@ const Register = () => {
     const { createUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
+    const [accepted, setAccepted] = useState(false);
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
@@ -68,14 +69,23 @@ const Register = () => {
                         <Form.Check onClick={() => setShowPassword(!showPassword)} type="checkbox" style={{ fontSize: '13px' }} label="show password" />
                     </Form.Group>
 
+                    {/* Terms and conditions */}
+                    <Form.Group className="mb-3 d-flex justify-content-center">
+                        <Form.Check onClick={() => setAccepted(!accepted)} type="checkbox" style={{ fontSize: '13px' }} label={<>Accept <Link to={'/terms'}>Terms and Condition</Link></>} />
+                    </Form.Group>
+
                     {/* Button */}
                     <div className='text-center'>
-                        <Button variant="primary" type="submit" className='px-5'>Register</Button>
+                        <Button disabled={!accepted} variant="primary" type="submit" className='px-5'>Register</Button>
                     </div>
                 </Form>
                 <p className='text-center mt-3' style={{ fontSize: '11px' }}>Already Have An Account ?
                     <Link to={'/login'} className='text-decoration-none text-danger'>Login</Link>
                 </p>
+                
+                {error &&
+                    <div className='text-center text-danger' style={{ fontSize: '11px' }}>{error}</div>
+                }
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
@@ -8,6 +8,8 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from || '/';
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
@@ -21,7 +23,7 @@ const Login = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
-                navigate('/');
+                navigate(from);
             })
             .catch((error) => {
                 setError(error.message);
