@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {  NavLink } from 'react-router-dom';
-import '../../public/style.css'
+import './style.css'
 
 const LeftNav = () => {
     const [categories, setCategories] = useState([]);
