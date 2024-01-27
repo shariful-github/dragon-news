@@ -27,12 +27,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Category></Category>,
-        loader: () => fetch('http://localhost:5000/news'),
+        loader: () => fetch('https://dragon-news-mu.vercel.app/news'),
       },
       {
         path: '/category/:id',
         element: <Category></Category>,
-        loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+        loader: ({ params }) => fetch(`https://dragon-news-mu.vercel.app/categories/${params.id}`)
       }
     ]
   },
@@ -51,20 +51,20 @@ const router = createBrowserRouter([
       {
         path: ':id',
         element: <PrivateRoute><News></News></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+        loader: ({ params }) => fetch(`https://dragon-news-mu.vercel.app/news/${params.id}`)
       }
     ]
   },
   {
-    path: '/terms', 
+    path: '/terms',
     element: <TermsAndConditions></TermsAndConditions>,
   },
   {
-    path: '/about', 
+    path: '/about',
     element: <About></About>
   },
   {
-    path: '/career', 
+    path: '/career',
     element: <Career></Career>
   }
 ]);

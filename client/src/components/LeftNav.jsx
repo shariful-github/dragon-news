@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {  NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './style.css'
 
 const LeftNav = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://dragon-news-mu.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(error => console.error(error))
@@ -15,7 +15,7 @@ const LeftNav = () => {
         <div>
             <h6 className='fw-bold'>All Category</h6>
             <nav className='mt-4 ps-4'>
-                {categories.map(category => 
+                {categories.map(category =>
                     <NavLink
                         key={category.id}
                         to={`/category/${category.id}`}
