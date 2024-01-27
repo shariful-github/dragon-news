@@ -16,6 +16,8 @@ import Register from './layouts/Register.jsx';
 import Test from './components/Test.jsx'
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import TermsAndConditions from './layouts/TermsAndConditions.jsx';
+import About from './layouts/About.jsx';
+import Career from './layouts/Career.jsx';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
   {
     path: '/terms', 
     element: <TermsAndConditions></TermsAndConditions>,
+  },
+  {
+    path: '/about', 
+    element: <About></About>
+  },
+  {
+    path: '/career', 
+    element: <Career></Career>
   }
 ]);
 

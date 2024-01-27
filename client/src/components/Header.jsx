@@ -36,8 +36,8 @@ const Header = () => {
                 <div className='col'></div>
                 <div className='mx-auto col text-center'>
                     <Link to={'/'} className='text-decoration-none me-3 text-secondary'>Home</Link>
-                    <Link to={'/'} className='text-decoration-none me-3 text-secondary'>About</Link>
-                    <Link to={'/'} className='text-decoration-none me-3 text-secondary'>Career</Link>
+                    <Link to={'/about'} className='text-decoration-none me-3 text-secondary'>About</Link>
+                    <Link to={'/career'} className='text-decoration-none me-3 text-secondary'>Career</Link>
                 </div>
                 <div className='text-end col pe-0'>
                     {user ?
