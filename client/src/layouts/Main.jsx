@@ -4,8 +4,10 @@ import LeftNav from "../components/LeftNav";
 import RightNav from "../components/RightNav";
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 
 const Main = () => {
+    useTitle('Home');
     return (
         <div>
             <Header></Header>

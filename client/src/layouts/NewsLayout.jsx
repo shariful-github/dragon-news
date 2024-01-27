@@ -4,8 +4,10 @@ import Header from '../components/Header';
 import { Outlet } from 'react-router-dom';
 import RightNav from '../components/RightNav';
 import EditorsInsight from '../components/EditorsInsight';
+import useTitle from '../hooks/useTitle';
 
 const NewsLayout = () => {
+    useTitle('Details News');
     return (
         <div>
             <Header></Header>

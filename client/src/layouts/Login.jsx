@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login');
     const { signIn } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
@@ -37,12 +39,12 @@ const Login = () => {
                 <Form className='mx-auto' onSubmit={handleOnSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label style={{ fontSize: '13px' }}>Email address</Form.Label>
-                        <Form.Control name='email' type="email" placeholder="Enter email" />
+                        <Form.Control name='email' type="email" placeholder="Enter email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Label style={{ fontSize: '13px' }}>Password</Form.Label>
-                        <Form.Control name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" />
+                        <Form.Control name='password' type={showPassword ? 'text' : 'password'} placeholder="Password" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check onClick={() => setShowPassword(!showPassword)} type="checkbox" style={{ fontSize: '13px' }} label="show password" />
